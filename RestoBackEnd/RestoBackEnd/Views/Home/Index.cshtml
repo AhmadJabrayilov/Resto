@@ -1,0 +1,151 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+      <!-- ?Main start -->
+    <main>
+        <section id="page-intro">
+            <div class="container">
+                <div class="row">
+            <div class="page-intro-text col-6">
+                <div class="intro-title">
+                @Html.Raw(Model.PageIntro.IntroTitle)
+                </div>
+                <div class="intro-button-play">
+                    <a href="#" class="btn btn-danger ">Explore Menu</a>
+                    <i class="fa-solid fa-circle-play"></i>
+                    <a href="#"><span>Play Video</span></a>
+
+
+                </div>
+                <div class="intro-service d-flex text-center">
+                    <div class="icons-area1">
+                        <i class="fa-solid fa-rocket"></i>  
+                        <p>Fast Delivery</p>
+                    </div>
+                    <div class="icons-area2 mx-5 px-5">
+                        <i class="fa-solid fa-leaf"></i>
+                        <p>Fresh Food</p>
+                    </div>
+                    <div class="icons-area3">
+                        <i class="fa-regular fa-comment"></i>   
+                        <p>24/7 Support</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="page-intro-slider col-6">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach (var item in Model.SliderVM)
+                       {
+                      <div class="carousel-item active">
+                        <img src="~/assets/img/@item.ImageUrl" class="d-block w-100" alt="...">
+                      </div>
+                           
+                       }
+                    </div>
+                      
+                     
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
+    </div>
+        </section>
+        <section id="welcome">
+        <div class="container">
+            <div class="row">
+                    <div class="waffle col-5">
+                        <img src="~/assets/img/@Model.AboutVM.AboutImagrUrl" alt="">
+                    </div>
+                    <div class="welcome-content col-7">
+                        <h5 style="color: red; font-weight: 200;">@Model.AboutVM.AboutTxt</h5>
+                        <h2>@Model.AboutVM.AboutTitle</h2>
+                        <p>
+                            @Model.AboutVM.AboutDesc
+                        </p>
+                        <h3>Special Recipe</h3>
+                        <div class="welcome-card-area">
+                            <div class="row row-cols-1 row-cols-md-3 g-4 text-start ">
+                                @foreach (var item in Model.AboutCardVM)
+                               {
+                                <div class="col ">
+                                  <div class="card h-100 border-0">
+                                    <img src="~/assets/img/@item.AboutCardImageUrl" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <a  class=" card-title">@item.AboutCardtitle</a>
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                                   
+                               }
+                              
+                               
+                              </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="special">
+            <div class="container">
+                <div class="row">
+                    <h5 class="text-center" style="color: red;">Specialties</h5>  
+                    <h2 class="text-center special-title">Special Dishes</h2>
+                  
+                    <div class="col-6 special-content-main">
+                        <div class="special-content d-flex align-items-center   ">
+                            <span><b>01.</b></span>
+                            <div class="special-line"></div>
+                        </div>
+                        <div class="special-text">
+                            <h3>@Model.Beef.CategoryMealName</h3>
+                            <h2>@Model.Beef.MealName</h2>
+                            <p>
+                                @Model.Beef.MealDesc
+                            </p>
+                            <p class="price">@Model.Beef.MealPrice</p>
+                            <a href="#" class="btn btn-danger">Book a Table</a>
+                        </div>
+                    </div>
+                    <div class="col-6 special-image">
+                        <img src="~/assets/img/@Model.Beef.MealImageUrl" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 special-image">
+                        <img src="~/assets/img/@Model.Salmon.MealImageUrl" alt="">
+                    </div>
+                     <div class="col-6 special-content-main2">
+                        <div class="special-content d-flex align-items-center   ">
+                            <span><b>02.</b></span>
+                            <div class="special-line"></div>
+                        </div>
+                        <div class="special-text">
+                            <h3>@Model.Salmon.CategoryMeal</h3>
+                            <h2 >@Model.Salmon.MealName</h2>
+                            <p>
+                                @Model.Salmon.MealDesc
+                            </p>
+                            <p class="price">$12.00</p>
+                            <a href="#" class="btn btn-danger">Book a Table</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+    </main>
+      <!-- ?Main end -->
+
